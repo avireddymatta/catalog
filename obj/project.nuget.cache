@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LVaSKTaupP/kRUQ1u7jzNqNAr3yBvFGz4bIVk1kY+ESjae/Z/ghN5A3VViY2UYzDtdu4FifbeShWD0uKOj6mdw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\matta\\Downloads\\Net5RestApiTutorial_10\\build.proj",
+  "expectedPackageFiles": [
+    "C:\\Users\\matta\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\matta\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net45\\1.0.2\\microsoft.netframework.referenceassemblies.net45.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
