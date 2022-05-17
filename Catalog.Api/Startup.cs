@@ -62,6 +62,15 @@ namespace Catalog.Api
                     name: "mongodb",
                     timeout: TimeSpan.FromSeconds(3),
                     tags: new[] { "ready" });
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +89,8 @@ namespace Catalog.Api
             }
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
