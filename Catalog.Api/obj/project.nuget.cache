@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "khmcTUdOwhOwz3GA2D0GyotaVtM3Uj6rcL47yoZzsjL1GDs4B2Moh8NAuihw/OBiLkeZmI/66gWrpQtmATsW7g==",
+  "dgSpecHash": "1KvkYdYQJOScgJaV58ukN1yLWGF900lE3/E49UsZG3OdDipYgM0Vv5RCotoAQDtOsmtYOPA8JsQrg2KspKRqGA==",
   "success": true,
   "projectFilePath": "C:\\Users\\matta\\Downloads\\Net5RestApiTutorial_10\\Catalog.Api\\Catalog.Api.csproj",
   "expectedPackageFiles": [
@@ -110,9 +110,6 @@
     "C:\\Users\\matta\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\matta\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\matta\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\matta\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\matta\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\matta\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\matta\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []

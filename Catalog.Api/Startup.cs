@@ -26,6 +26,7 @@ namespace Catalog.Api
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -39,6 +40,23 @@ namespace Catalog.Api
             BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
             BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
             var mongoDbSettings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+
+            var serviceProvider = services.BuildServiceProvider();
+            var _logger = serviceProvider.GetService<ILogger<Startup>>();
+            services.AddSingleton(typeof(ILogger), _logger);
+
+            _logger.LogInformation(mongoDbSettings.ConnectionString);
+            _logger.LogInformation(mongoDbSettings.Host);
+            _logger.LogInformation(mongoDbSettings.Port.ToString());
+            _logger.LogInformation(mongoDbSettings.User);
+            _logger.LogInformation(mongoDbSettings.Password);
+
+
+            _logger.LogDebug(mongoDbSettings.ConnectionString);
+            _logger.LogDebug(mongoDbSettings.Host);
+            _logger.LogDebug(mongoDbSettings.Port.ToString());
+            _logger.LogDebug(mongoDbSettings.User);
+            _logger.LogDebug(mongoDbSettings.Password);
 
             services.AddSingleton<IMongoClient>(serviceProvider =>
             {

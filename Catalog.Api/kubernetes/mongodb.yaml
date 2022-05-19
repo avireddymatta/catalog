@@ -6,50 +6,44 @@ spec:
   serviceName: "mongodb-service"
   selector:
     matchLabels:
-      app: mongodb
+      role: mongo
   template:
     metadata:
       labels:
-        app: mongodb
+        role: mongo
+        environment: test
+        replicaset: MainRepSet
     spec:
+      terminationGracePeriodSeconds: 10
       containers:
         - name: mongodb
           image: mongo
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
           ports:
             - containerPort: 27017
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
               value: "mongoadmin"
             - name: MONGO_INITDB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: catalog-secrets
-                  key: mongodb-password
+              value: "Pass#word1"
           volumeMounts:
             - mountPath: /data/db
-              name: data
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 1Gi
+              name: mongo-data-storage
+      volumes:
+        - name: mongo-data-storage
+          persistentVolumeClaim:
+            claimName: mongo-data-claim
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-service
+  labels:
+    name: mongo
 spec:
   clusterIP: None
   selector:
-    app: mongodb
+    role: mongo
   ports:
     - port: 27017
       targetPort: 27017

@@ -13,22 +13,24 @@ spec:
     spec:
       containers:
         - name: catalog-items
-          image: mattavireddy/catalogitems:v1
+          image: mattavireddy/catalogitems:v3
           resources:
             limits:
-              memory: "720Mi"
+              memory: "620Mi"
               cpu: "500m"
           ports:
-            - containerPort: 3000
+            - containerPort: 80
+              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: catalog-items-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: catalog-items
   ports:
-    - port: 3000
-      targetPort: 3000
+    - port: 80
+      targetPort: 80
+      protocol: TCP

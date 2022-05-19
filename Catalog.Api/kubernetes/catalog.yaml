@@ -13,21 +13,21 @@ spec:
     spec:
       containers:
         - name: catalog
-          image: mattavireddy/catalog:v1
+          image: mattavireddy/catalog:v2
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
             - containerPort: 80
+              protocol: TCP
           env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
             - name: MongoDbSettings__Host
               value: mongodb-service
             - name: MongodbSettings__Password
-              valueFrom:
-                secretKeyRef:
-                  name: catalog-secrets
-                  key: mongodb-password
+              value: "Pass#word1"
           livenessProbe:
             httpGet:
               path: /health/live
@@ -36,16 +36,16 @@ spec:
             httpGet:
               path: /health/ready
               port: 80
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: catalog-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: catalog
   ports:
     - port: 80
+      protocol: TCP
       targetPort: 80
